@@ -1,0 +1,30 @@
+[project]
+name = "engine-atlas-mcp"
+dynamic = ["version"]
+description = "MCP server that lets an AI assistant work in the Engine Atlas edit mode of octane-loader.utmsoft.ru"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["mcp>=1.0,<2"]
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+keywords = ["mcp", "reverse-engineering", "ghidra", "asphalt-8"]
+
+[project.scripts]
+engine-atlas-mcp = "engine_atlas_mcp.server:main"
+
+[project.urls]
+Repository = "https://github.com/mindkeyboard/engine-atlas-mcp"
+Issues = "https://github.com/mindkeyboard/engine-atlas-mcp/issues"
+
+[tool.setuptools.dynamic]
+version = { attr = "engine_atlas_mcp.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+engine_atlas_mcp = ["research-guide-ru.md"]
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
